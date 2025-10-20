@@ -2,8 +2,7 @@ name: Build Book PDF
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -15,10 +14,24 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v4
 
-      - name: Build AsciiDoc to PDF
-        uses: asciidoctor/asciidoctor-action@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          program: "asciidoctor-pdf book.adoc -o Practical-DDD-in-Kotlin.pdf"
+          ruby-version: '3.3'
+          bundler-cache: false
+
+      - name: Install Asciidoctor PDF toolchain
+        run: |
+          gem install asciidoctor-pdf --no-document
+          gem install rouge
+          # Valgfritt: diagrammer
+          # gem install asciidoctor-diagram
+          # Valgfritt: bred fontstøtte (Noto + emoji)
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto fonts-noto-cjk fonts-noto-color-emoji
+
+      - name: Build AsciiDoc to PDF
+        run: asciidoctor-pdf book.adoc -o Practical-DDD-in-Kotlin.pdf
 
       - name: Upload PDF as an artifact
         uses: actions/upload-artifact@v4
