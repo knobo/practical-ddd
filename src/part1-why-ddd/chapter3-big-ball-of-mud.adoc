@@ -1,0 +1,11 @@
+=== Problem: "Our Codebase is a 'Big Ball of Mud' and We Don't Know Where to Start"
+
+*Problem*::
+Many development teams work on legacy systems that have grown organically without clear architectural guidance. These systems often devolve into a "Big Ball of Mud": a single, monolithic model with tangled dependencies, scattered logic, and no clear boundaries.[9] In such a codebase, making any change is risky and time-consuming, and the prospect of improvement can feel overwhelming.
+
+*Solution*::
+The solution is not a "big bang" rewrite but a strategic, incremental process of untangling the monolith from within. The first step is collaborative discovery, such as a **Big Picture EventStorming** workshop, to map the existing business processes.[9, 10] Based on this map, identify and isolate a candidate Bounded Context. Before refactoring, introduce an **Anti-Corruption Layer (ACL)** around this context *within the monolith* to protect the new, clean model from the legacy code.[9, 8] Then, refactor incrementally behind this protective layer.
+
+*Discussion*::
+This strategy transforms the daunting task of "fixing the monolith" into a manageable, iterative process. It acknowledges that most teams cannot simply halt feature development to refactor.[9] The insights gained from collaborative modeling sessions like EventStorming become the strategic driver for both new feature work and targeted refactoring. By decoupling parts of the monolith into Bounded Contexts within the same deployable unit, the team can achieve many of the benefits of DDD (clearer models, reduced complexity) without the operational overhead of moving to a distributed microservices architecture immediately.
+

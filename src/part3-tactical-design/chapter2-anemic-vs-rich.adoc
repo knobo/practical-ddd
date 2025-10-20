@@ -1,0 +1,30 @@
+=== Problem: "My Entities are Just Anemic Data Bags"
+
+*Problem*::
+A pervasive anti-pattern is the **Anemic Domain Model**, where domain objects are simple "data bags" with public getters and setters, containing no business logic. All behavior is located in separate "service" classes.[23, 24] This procedural style violates encapsulation, leading to scattered logic and making it difficult to enforce business rules (invariants) consistently.[25, 26]
+
+*Solution*::
+Create a **Rich Domain Model**, where entities encapsulate their state and expose methods that represent meaningful business operations. Make the entity's state private (e.g., using `private set` in Kotlin) and expose behavior, not state. Instead of generic setters like `setBalance()`, create methods that express business intent, like `deposit(amount)`. These methods are the guardians of the entity's consistency.[23, 27, 28]
+
+.Rich Account Entity in Kotlin
+[source,kotlin]
+----
+class Account(val id: AccountId, private val ownerId: CustomerId) {
+    var balance: Money private set = Money.ZERO
+    var status: AccountStatus private set = AccountStatus.PENDING_ACTIVATION
+
+    fun withdraw(amount: Money) {
+        if (this.status!= AccountStatus.ACTIVE) {
+            throw InvalidAccountStatusException("Account is not active.")
+        }
+        if (this.balance < amount) {
+            throw InsufficientFundsException("Insufficient funds.")
+        }
+        this.balance = this.balance.subtract(amount)
+    }
+}
+----
+
+*Discussion*::
+The debate between rich and anemic models is central to DDD. While anemic models may seem simpler for basic CRUD applications, this is deceptive in the face of real-world complexity.[23, 24] A rich model creates highly cohesive objects where data and the logic that operates on that data are located together.[23] This guarantees consistency, improves discoverability of business operations, and reduces code duplication.[26]
+

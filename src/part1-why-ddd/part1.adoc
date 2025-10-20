@@ -1,0 +1,8 @@
+[part]
+== Part 1: The "Why" of DDD - Foundations and Justification
+
+Domain-Driven Design (DDD) is a software development approach that prioritizes a deep understanding of the business domain to manage complexity in software projects.[1] This initial part of the book addresses the fundamental question of *why* an organization should adopt DDD. It moves beyond technical patterns to establish the mindset and business case required for success.
+
+include::chapter1-justify-investment.adoc
+include::chapter2-over-engineering.adoc
+include::chapter3-big-ball-of-mud.adoc

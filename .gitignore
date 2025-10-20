@@ -1,0 +1,15 @@
+# Ignore generated files
+*.pdf
+*.html
+*.epub
+
+# IDE-specific files
+.idea/
+*.iml
+*.iws
+.vscode/
+
+# Build directories
+build/
+out/
+target/

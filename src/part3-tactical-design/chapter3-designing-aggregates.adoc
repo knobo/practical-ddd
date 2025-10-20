@@ -1,0 +1,15 @@
+=== Problem: "What are the rules for designing Aggregates? How big should they be?"
+
+*Problem*::
+The Aggregate is a critical but challenging pattern that defines a consistency boundary.[1, 5] A common mistake is to design large aggregates based on real-world object relationships. These large aggregates suffer from poor performance, scalability issues, and frequent optimistic locking conflicts.[29, 30]
+
+*Solution*::
+Follow the four pragmatic rules articulated by Vaughn Vernon, which shift the focus from object composition to transactional consistency.[29]
+1.  **Model True Invariants:** The boundary should only enclose objects that must be transactionally consistent. One transaction should only ever modify a single aggregate instance.
+2.  **Design Small Aggregates:** The vast majority of aggregates should be very small, often just the root entity.
+3.  **Reference Other Aggregates by Identity:** An aggregate should not hold a direct object reference to another aggregate. Instead, reference it by its unique ID (e.g., a `CustomerId` value object).
+4.  **Use Eventual Consistency Outside the Boundary:** If a business process requires updating multiple aggregates, have the first aggregate publish a domain event. Other aggregates can then subscribe to this event and update themselves in separate transactions.
+
+*Discussion*::
+These four rules provide a powerful heuristic for designing aggregates that are loosely coupled, scalable, and performant. They force a shift in thinking from "what objects are related?" to "what must be consistent *right now*?". This approach naturally leads to an event-driven architecture where aggregates communicate asynchronously via domain events, which is the foundation for building resilient and scalable systems, especially in a microservices environment.
+

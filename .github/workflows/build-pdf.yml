@@ -1,0 +1,27 @@
+name: Build Book PDF
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build PDF with Asciidoctor
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Build AsciiDoc to PDF
+        uses: asciidoctor/asciidoctor-action@v2
+        with:
+          program: "asciidoctor-pdf book.adoc -o Practical-DDD-in-Kotlin.pdf"
+
+      - name: Upload PDF as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-pdf
+          path: Practical-DDD-in-Kotlin.pdf

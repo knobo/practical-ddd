@@ -1,0 +1,11 @@
+=== Problem: "Is DDD Over-Engineering for My Project?"
+
+*Problem*::
+While DDD offers powerful tools for managing complexity, its principles are not universally applicable. Applying the full suite of DDD patterns—layered architectures, rich domain models, bounded contexts—to a simple, straightforward project can introduce unnecessary complexity, boilerplate code, and development overhead.[2] This is a valid concern, and teams need a pragmatic way to determine if and when DDD is the right approach, avoiding the trap of "over-engineering" a problem that doesn't warrant it.[5]
+
+*Solution*::
+The decision to use DDD should be a conscious trade-off based on the specific context of the project. Use a decision framework or scorecard to evaluate the project against key criteria like domain complexity, project lifespan, team structure, and strategic value.[5, 6, 7] A higher score suggests a stronger case for adopting DDD. It's also important to remember that DDD is not all-or-nothing; its practices can be adapted. For simpler projects, a less layered architecture may suffice.[2, 8]
+
+*Discussion*::
+The "over-engineering" argument stems from applying a solution designed for complex problems to simple ones. The key is to correctly diagnose the problem. For a startup building an MVP, prioritizing speed over architectural purity is often the right business decision, representing a conscious acceptance of technical debt.[2] For an enterprise building a complex, long-lived system, failing to invest in a structured approach like DDD is a form of "under-engineering" that will lead to massive long-term costs. The goal is not to follow DDD rules for their own sake, but to use its principles as a toolkit to manage complexity effectively.[8]
+

@@ -1,0 +1,11 @@
+=== Problem: "Our Monolithic Domain Model is Becoming Unmanageable"
+
+*Problem*::
+In many large systems, a single, unified domain model serves the entire application. As the system grows, this monolithic model becomes a major source of complexity. Different departments have conflicting definitions for the same entity. For example, a "Product" in a sales context is different from a "Product" in an inventory context.[11, 12] Forcing these different models into a single representation results in a bloated, confusing object that serves no single purpose well.[13]
+
+*Solution*::
+The primary solution is the application of the **Bounded Context**, the central pattern in DDD's Strategic Design. A Bounded Context defines an explicit boundary within which a particular domain model and its Ubiquitous Language are consistent.[11, 13] Instead of a single model, decompose the domain into multiple Bounded Contexts (e.g., "Sales," "Inventory," "Shipping"). Within each context, develop a model tailored to that specific purpose. It is expected that the representation of "Product" will be different in each context.
+
+*Discussion*::
+The Bounded Context pattern is the strategic antidote to the "Big Ball of Mud".[9, 14] By dividing the system into smaller, more manageable pieces, it dramatically reduces complexity. Developers working within a single context can focus on a specific part of the system without being overwhelmed by the entire domain.[13] This modularity allows different teams to work on different contexts in parallel with greater autonomy. This pattern aligns very closely with microservices architecture, where a Bounded Context is often the ideal candidate for a microservice boundary.[6, 13]
+

@@ -1,0 +1,11 @@
+=== Problem: "How Do We Visualize and Manage the Relationships Between Different System Parts?"
+
+*Problem*::
+Once a system has been decomposed into multiple Bounded Contexts, they must interact to fulfill larger business goals. Without a clear way to define and manage these interactions, integrations become ad-hoc, inconsistent, and brittle. Teams may make incorrect assumptions about each other's models, leading to tight coupling and integration failures.[8, 15]
+
+*Solution*::
+A **Context Map** is the DDD tool for visualizing the relationships between Bounded Contexts. It is a high-level diagram that shows each context and the specific integration pattern that defines its relationship with others.[12, 16] Creating a Context Map forces teams to be explicit about their integration strategies. Common patterns include: **Partnership**, **Shared Kernel**, **Customer-Supplier**, **Conformist**, **Anticorruption Layer (ACL)**, and **Open-Host Service (OHS)**.
+
+*Discussion*::
+A Context Map elevates integration from a mere technical task to a strategic architectural and organizational decision. The choice of a pattern is not just about technology; it directly reflects and influences team relationships.[15, 17] A Partnership implies tight collaboration, while an Anticorruption Layer is a defensive stance that promotes autonomy. This map serves as a living document that guides development, helps teams understand their responsibilities, and prevents architectural decay by making boundaries and relationships explicit.
+

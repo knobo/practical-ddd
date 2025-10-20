@@ -1,0 +1,36 @@
+=== Problem: "How do I represent a concept like 'Money' or a valid 'EmailAddress' safely in my domain?"
+
+*Problem*::
+Value Objects are a cornerstone of tactical DDD, defined by their attributes rather than a unique identity.[1, 5] They should be immutable. Kotlin's language features are well-suited for this, but developers need clear guidance on when to use a `data class` versus the more specialized `value class` to create expressive, safe, and performant Value Objects.[18, 19]
+
+*Solution*::
+Use a `data class` for composite Value Objects (multiple properties) and a `value class` for single-property wrappers. A `data class` automatically generates `equals()`, `hashCode()`, and `toString()` based on its properties.[18, 20, 21] A `value class` provides the benefits of a wrapper type at compile time but is often compiled down to the underlying primitive type, eliminating object allocation overhead.[19, 22]
+
+.Address Value Object with `data class`
+[source,kotlin]
+----
+data class Address(
+    val street: String,
+    val city: String,
+    val zipCode: String
+) {
+    init {
+        require(zipCode.isNotBlank()) { "Zip code cannot be blank" }
+    }
+}
+----
+
+.CustomerId Value Object with `value class`
+[source,kotlin]
+----
+@JvmInline
+value class CustomerId(val value: String) {
+    init {
+        require(value.startsWith("cust-")) { "Invalid Customer ID format" }
+    }
+}
+----
+
+*Discussion*::
+Kotlin's first-class support for these constructs makes implementing Value Objects trivial, encouraging developers to move away from "primitive obsession." Using specific types like `CustomerId` instead of `String` makes the domain model more expressive and prevents a wide class of bugs at compile time.[19] Placing validation in the `init` block guarantees that it is impossible to create an invalid instance, strengthening the integrity of the entire domain model.[19]
+
