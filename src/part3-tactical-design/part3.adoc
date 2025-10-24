@@ -3,6 +3,6 @@
 
 This final part transitions from high-level strategy to the concrete practice of building software. Tactical Design provides a palette of patterns—the building blocks—for creating a rich, expressive, and robust domain model. This section offers practical, code-centric recipes for implementing these building blocks idiomatically in Kotlin.
 
-include::chapter1-value-objects.adoc
-include::chapter2-anemic-vs-rich.adoc
-include::chapter3-designing-aggregates.adoc
+include::chapter1-value-objects.adoc[]
+include::chapter2-anemic-vs-rich.adoc[]
+include::chapter3-designing-aggregates.adoc[]

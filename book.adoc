@@ -7,8 +7,6 @@
 
 // This is the main document that includes all parts of the book.
 
-include::src/part1-why-ddd/part1.adoc
-
-include::src/part2-strategic-design/part2.adoc
-
-include::src/part3-tactical-design/part3.adoc
+include::src/part1-why-ddd/part1.adoc[]
+include::src/part2-strategic-design/part2.adoc[]
+include::src/part3-tactical-design/part3.adoc[]
