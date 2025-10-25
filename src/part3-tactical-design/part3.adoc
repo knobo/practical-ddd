@@ -1,4 +1,3 @@
-[part]
 == Part 3: Tactical Design & Architecture - Building with Kotlin
 
 This final part transitions from high-level strategy to the concrete practice of building software. Tactical Design provides a palette of patterns—the building blocks—for creating a rich, expressive, and robust domain model. This section offers practical, code-centric recipes for implementing these building blocks idiomatically in Kotlin.

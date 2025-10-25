@@ -1,4 +1,3 @@
-[part]
 == Part 2: Strategic Design - Mapping the Business Landscape
 
 Strategic Design in DDD provides the tools to manage complexity at a macro level. It is the practice of drawing a high-level map of the business domain before delving into the implementation details of any single part. This section focuses on decomposing a large, complex domain into a set of cohesive, manageable, and autonomous **Bounded Contexts**.

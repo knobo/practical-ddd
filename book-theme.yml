@@ -1,0 +1,21 @@
+# This is a custom theme file for asciidoctor-pdf
+extends: default
+
+base:
+  font_color: "333333"
+
+title_page:
+  align: center
+  background_color: "FFFFFF"
+  title:
+    top: 45%
+    font_color: "000000"
+    font_size: 36
+    font_style: bold
+  subtitle:
+    font_color: "333333"
+    font_size: 18
+  authors:
+    margin_top: 20
+    font_color: "000000"
+    font_size: 14
